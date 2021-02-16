@@ -12,7 +12,7 @@ function App() {
   const [isCorrect, setCorrect] = useState(false)
   
   function showAnswer() {
-    setCorrect(checkList.some(c => c == questions[count].answer?.toString()))
+    setCorrect(checkList.every(c => questions[count].answer.includes(Number.parseInt(c))) && checkList.length === questions[count].answer.length)
     setVisible(!visible)
   }
   
